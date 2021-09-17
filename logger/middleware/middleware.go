@@ -7,7 +7,7 @@ import (
 
 var alptrace = logger.New()
 
-func Middleware() func(next echo.HandlerFunc) echo.HandlerFunc {
+func New() func(next echo.HandlerFunc) echo.HandlerFunc {
 	return func(next echo.HandlerFunc) echo.HandlerFunc {
 		return func(c echo.Context) error {
 			t := alptrace.Start()
