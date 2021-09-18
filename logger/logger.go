@@ -183,6 +183,7 @@ type AlpTrace struct {
 
 // New creates AlpTrace
 func New() *AlpTrace {
+	os.MkdirAll(LogFilePath, os.ModePerm)
 	format := `{"time":"${time}","method":"${method}","uri":"${uri}","status":${status},"response_time":${response_time},"body_bytes":${body_bytes}}` + "\n"
 	filename := LogFilePath + "logalp.txt"
 	logfile, err := os.OpenFile(filename, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
